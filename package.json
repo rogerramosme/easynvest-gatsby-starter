@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "easynvest-gatsby-starter",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Starter para criação de Landing Pages e sites baseado no Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Roger Ramos <rodgerpaulo@hotmail.com>",
   "dependencies": {
-    "gatsby": "^2.3.16",
+    "gatsby": "^2.3.24",
     "gatsby-image": "^2.0.37",
     "gatsby-plugin-manifest": "^2.0.28",
     "gatsby-plugin-offline": "^2.0.25",
@@ -19,6 +19,15 @@
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "babel-preset-react-app": "^7.0.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "lint-staged": "^8.1.5",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.16.4"
   },
   "keywords": [
