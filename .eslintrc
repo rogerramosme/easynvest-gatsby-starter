@@ -114,6 +114,7 @@
       }
     ],
     "jsx-a11y/no-noninteractive-element-interactions": 0,
-    "jsx-a11y/no-redundant-roles": 0
+    "jsx-a11y/no-redundant-roles": 0,
+    "quotes": ["error", "single"]
   }
 }
