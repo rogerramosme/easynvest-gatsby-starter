@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import { Colors, Theme } from 'config/theme'
 
 export default createGlobalStyle`
     * {
@@ -16,7 +15,7 @@ export default createGlobalStyle`
 
     html {
         font-size: 62.5%;
-        font-family: ${Theme.default.FontFamily}, sans-serif;
+        font-family: ${({ theme }) => theme.FontFamily}, sans-serif;
         line-height: 1;
         -webkit-text-size-adjust: none;
     }
@@ -26,16 +25,17 @@ export default createGlobalStyle`
     }
 
     body {
-        color: ${Colors.Gray};
+        color: ${({ theme }) => theme.PageColor};
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -webkit-overflow-scrolling: touch;
         -webkit-text-size-adjust: none;
         overflow-y: auto;
+        background-color: ${({ theme }) => theme.PageBackgroundColor};
     }
 
     a {
-        color: ${Colors.RipePlum};
+        color: ${({ theme }) => theme.PageLinkColor};
         text-decoration: none;
 
         &:hover {
