@@ -10,6 +10,7 @@ export const BgEasy = styled.div`
   align-items: center;
   display: flex;
   flex-flow: column;
+  flex-grow: 1;
 
   ${breakpoints.fullHd`
     background-position: initial

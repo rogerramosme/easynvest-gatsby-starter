@@ -1,9 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import Layout from 'components/Layout'
 import Navbar from 'components/Navbar'
+import HelloWorld from 'components/HelloWorld'
 import SEO from 'config/seo'
-import { IndexWrapper, HelloWorld } from './index.style'
+
+const IndexWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`
 
 const IndexPage = () => (
   <Layout>

@@ -39,7 +39,7 @@ module.exports = {
         background_color: '#4E0250',
         theme_color: '#4E0250',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png'
+        icon: 'src/images/easynvest-logo-small.svg'
       }
     }
   ]
