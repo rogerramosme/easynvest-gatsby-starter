@@ -1,16 +1,29 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Content from 'components/Content'
 import { breakpoints } from 'shared/media'
 import Button from 'components/Button'
 import CurvedShape from 'images/curved-shape.svg'
 
 export const NavbarWrapper = styled.nav`
-  padding: 2.4rem 0;
+  padding: ${({ fixed }) => (fixed ? '2.4rem 0 0' : '2.4rem 0')};
+  background: ${({ theme }) => theme.PageBackgroundColor};
+
+  ${({ fixed }) =>
+    fixed &&
+    css`
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      top: 0;
+      position: fixed;
+    `};
 `
 
 export const NavbarContent = styled(Content)`
   align-items: center;
   position: relative;
+  flex-grow: 1;
 
   ${breakpoints.tablet`
     display: flex;

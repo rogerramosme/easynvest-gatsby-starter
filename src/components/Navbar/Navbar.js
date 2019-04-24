@@ -75,7 +75,7 @@ export default () => {
   }, [])
 
   return (
-    <NavbarWrapper>
+    <NavbarWrapper fixed={isMobile && menuIsVisible}>
       <NavbarContent>
         <MenuButton onClick={() => setMenuVisibility(!menuIsVisible)} size="2.2rem">
           <img src={menuIsVisible ? Close : Menu} alt="Fechar menu" />
