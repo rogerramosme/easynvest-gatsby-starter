@@ -1,4 +1,4 @@
-<img width="80" src="https://bootstrap-dev.easynvest.com.br/src/img/favicon.png" />
+<img width="90" src="https://github.com/rodgerpaulo/easynvest-gatsby-starter/blob/master/src/images/favicon.png?raw=true" />
 
 # Easynvest Gatsby Starter
 
