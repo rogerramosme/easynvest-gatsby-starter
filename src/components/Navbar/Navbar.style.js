@@ -19,11 +19,6 @@ export const NavbarContent = styled(Content)`
 
 export const NavbarLogo = styled.img`
   max-width: 17rem;
-  margin-bottom: 5rem;
-
-  ${breakpoints.tablet`
-    margin-bottom: 0;
-  `}
 `
 
 export const LinkList = styled.ul`
@@ -64,7 +59,19 @@ export const NavbarLink = styled.a`
 export const ButtonWrapper = styled.div`
   order: 1;
   width: 100%;
-  display: flex;
+
+  button + button {
+    margin-top: 1.5rem;
+  }
+
+  ${breakpoints.phone`
+    display: flex;
+
+    button + button {
+      margin-left: 2.4rem;
+      margin-top: 0;
+    }
+  `}
 
   ${breakpoints.tablet`
     order: 2;
@@ -81,9 +88,10 @@ export const MenuWrapper = styled.menu`
   display: ${({ visible }) => (visible ? 'flex' : 'none')};
   flex-flow: column;
   padding: 0;
-  margin: 0;
+  margin: 5rem 0 0;
 
   ${breakpoints.tablet`
+    margin: 0;
     display: flex;
     flex-grow: 1
     flex-flow: row;
@@ -92,7 +100,13 @@ export const MenuWrapper = styled.menu`
 
 export const NavbarButton = styled(Button)`
   flex-grow: 1;
-  flex-basis: 50%;
+  flex-basis: 100%;
+  width: 100%;
+
+  ${breakpoints.phone`
+    flex-basis: 50%;
+    width: auto;
+  `}
 
   ${breakpoints.tablet`
     flex-grow: 0;

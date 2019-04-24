@@ -9,8 +9,4 @@ export default styled.button`
   background-color: ${({ outline, theme }) => (outline ? 'transparent' : theme.PrimaryColor)};
   border: solid 0.1rem ${({ outline, theme }) => (outline ? theme.PrimaryColor : 'transparent')};
   border-radius: 2.4rem;
-
-  & + & {
-    margin-left: 2.4rem;
-  }
 `
