@@ -19,20 +19,17 @@ export const Colors = {
   White: Palette.White,
   Gray: Palette.DustyGray,
   Yellow: Palette.SelectiveYellow,
-  Cream: Palette.EcruWhite
-}
-
-export const Media = {
-  tablet: '900px',
-  desktop: '1200px'
+  Cream: Palette.EcruWhite,
+  DarkBrown: Palette.Thunder
 }
 
 export const Theme = {
   default: {
     FontFamily: 'Poppins',
     PageBackgroundColor: Colors.Cream,
-    PageColor: Colors.Gray,
-    PageLinkColor: Colors.Purple,
+    PageColor: Colors.DarkBrown,
+    PageActiveColor: Colors.Pink,
+    PrimaryColor: Colors.LightPurple,
     FontWeight: {
       light: 300,
       medium: 500
