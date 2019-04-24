@@ -1,7 +1,7 @@
+/* eslint-disable max-len */
 module.exports = {
   siteMetadata: {
     title: 'Easynvest Gatsby Starter',
-    // eslint-disable-next-line max-len
     description:
       'Kick off your next, great Gatsby project with this starter. This barebones starter ships with the main Easynvest Stack to create awesome and cool stuf!',
     author: '@rodgerpaulo'
@@ -39,7 +39,7 @@ module.exports = {
         background_color: '#4E0250',
         theme_color: '#4E0250',
         display: 'minimal-ui',
-        icon: 'src/images/easynvest-logo-small.svg'
+        icon: 'src/images/favicon.png'
       }
     }
   ]
