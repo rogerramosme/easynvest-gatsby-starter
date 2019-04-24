@@ -17,6 +17,7 @@ export const NavbarWrapper = styled.nav`
       width: 100vw;
       top: 0;
       position: fixed;
+      overflow-y: auto;
     `};
 `
 
