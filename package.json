@@ -2,7 +2,7 @@
   "name": "easynvest-gatsby-starter",
   "private": true,
   "description": "Starter para criação de Landing Pages e sites baseado no Gatsby",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Roger Ramos <rodgerpaulo@hotmail.com>",
   "dependencies": {
     "gatsby": "^2.3.24",

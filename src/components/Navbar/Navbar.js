@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import easynvestlogo from 'images/easynvest-logo.svg'
-import { sizes } from 'shared/media'
+import React, { useState } from 'react'
+import { bool } from 'prop-types'
+import IsMobileHoc from 'components/IsMobileHoc'
+import ToggleNavButton from 'components/ToggleNavButton'
+import EasynvestLogo from 'images/easynvest-logo.svg'
+import EasynvestLogoNegative from 'images/easynvest-logo-negative.svg'
 import Content from 'components/Content'
-import Close from 'images/icons/close.svg'
-import Menu from 'images/icons/menu.svg'
+import { Colors } from 'config/theme'
 import Facebook from 'images/icons/social-facebook.svg'
 import Instagram from 'images/icons/social-instagram.svg'
 import Youtube from 'images/icons/social-youtube.svg'
@@ -55,66 +57,95 @@ const socialItems = [
   }
 ]
 
-export default () => {
-  const [isMobile, setMobile] = useState(false)
-  const [menuIsVisible, setMenuVisibility] = useState(false)
-  const handleMobile = () => {
-    if (window.outerWidth >= sizes.tablet) {
-      setMobile(false)
-    } else if (!isMobile) {
-      setMobile(true)
-    }
+const handleNavigationClick = (event, scrollToSection) => {
+  if (scrollToSection) {
+    event.preventDefault()
+    document.querySelector(event.target.hash).scrollIntoView({
+      behavior: 'smooth'
+    })
   }
+}
 
-  useEffect(() => {
-    window.addEventListener('resize', () => handleMobile())
-    handleMobile()
-    return () => {
-      window.removeEventListener('resize', () => handleMobile())
-    }
-  }, [])
-
+const Navbar = ({ isMobile, negative }) => {
+  const [menuIsOpen, setMenuVisibility] = useState(false)
+  const color = negative && !menuIsOpen ? Colors.White : Colors.Purple
   return (
-    <NavbarWrapper fixed={isMobile && menuIsVisible}>
+    <NavbarWrapper menuIsOpen={isMobile && menuIsOpen} negative={negative}>
       <NavbarContent>
-        <MenuButton onClick={() => setMenuVisibility(!menuIsVisible)} size="2.2rem">
-          <img src={menuIsVisible ? Close : Menu} alt="Fechar menu" />
+        <MenuButton onClick={() => setMenuVisibility(!menuIsOpen)} size="2.2rem">
+          <ToggleNavButton open={menuIsOpen} negative={negative} color={color} />
         </MenuButton>
         <LogoWraper>
-          <a href="https://easynvest.com.br">
-            <NavbarLogo src={easynvestlogo} alt="Logo" />
+          <a href="https://www.easynvest.com.br">
+            <NavbarLogo
+              width="170"
+              src={menuIsOpen || !negative ? EasynvestLogoNegative : EasynvestLogo}
+              alt="Logo"
+            />
           </a>
         </LogoWraper>
-        <MenuWrapper visible={menuIsVisible}>
+        <MenuWrapper visible={isMobile && menuIsOpen}>
           <LinkList>
             <LinkItem>
-              <NavbarLink active href="https://www.easynvest.com.br">
+              <NavbarLink
+                active
+                negative={negative}
+                href="#hero"
+                onClick={event => handleNavigationClick(event, true)}
+              >
                 Link
               </NavbarLink>
             </LinkItem>
             <LinkItem>
-              <NavbarLink href="https://www.easynvest.com.br">Link</NavbarLink>
+              <NavbarLink
+                negative={negative}
+                href="#hero"
+                onClick={event => handleNavigationClick(event, true)}
+              >
+                Link
+              </NavbarLink>
             </LinkItem>
             <LinkItem>
-              <NavbarLink href="https://www.easynvest.com.br">Link</NavbarLink>
+              <NavbarLink
+                negative={negative}
+                href="#hero"
+                onClick={event => handleNavigationClick(event, true)}
+              >
+                Link
+              </NavbarLink>
             </LinkItem>
           </LinkList>
           <ButtonWrapper>
-            <NavbarButton type="button">Cadastre-se</NavbarButton>
-            <NavbarButton outline type="button">
+            <NavbarButton
+              as="a"
+              mobileNotOpen={!isMobile && !menuIsOpen}
+              negative={negative}
+              href="https://www.easynvest.com.br/autenticacao/pre-cadastro"
+              onClick={event => handleNavigationClick(event, false)}
+            >
+              Abra sua conta
+            </NavbarButton>
+            <NavbarButton
+              as="a"
+              outline
+              mobileNotOpen={!isMobile && !menuIsOpen}
+              negative={negative}
+              href="https://www.easynvest.com.br/autenticacao/"
+              onClick={event => handleNavigationClick(event, false)}
+            >
               Login
             </NavbarButton>
           </ButtonWrapper>
         </MenuWrapper>
       </NavbarContent>
-      {isMobile && menuIsVisible && (
+      {isMobile && menuIsOpen && (
         <SocialWrapper>
           <Content>
             <SocialTitle>Nossas redes sociais</SocialTitle>
             <SocialIconWrapper>
               {socialItems.map(({ url, icon, title }) => (
-                <a href={url}>
-                  <SocialIcon src={icon} title={title} key={title} size="4.2rem" />
+                <a href={url} key={`nav-${title}`}>
+                  <SocialIcon src={icon} title={title} size="4.2rem" />
                 </a>
               ))}
             </SocialIconWrapper>
@@ -124,3 +155,15 @@ export default () => {
     </NavbarWrapper>
   )
 }
+
+Navbar.propTypes = {
+  isMobile: bool,
+  negative: bool
+}
+
+Navbar.defaultProps = {
+  isMobile: false,
+  negative: false
+}
+
+export default IsMobileHoc(Navbar)
