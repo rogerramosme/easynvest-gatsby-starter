@@ -11,6 +11,7 @@ export default styled.button`
   border: solid 1px ${({ outline, theme }) => (outline ? theme.PrimaryColor : 'transparent')};
   border-radius: 2.4rem;
   ${({ width }) => width && `width: ${width}`};
+  transition: 0.2s ease;
 
   &:hover {
     cursor: pointer;
@@ -23,10 +24,21 @@ export default styled.button`
           background-color: ${outline ? 'transparent' : Colors.Blue};
           color: ${outline ? Colors.White : Colors.Purple};
           border: solid 0.1rem ${outline ? Colors.White : 'transparent'};
+          &:hover {
+            background-color: ${Colors.LightBlue};
+            border-color: ${Colors.LightBlue};
+            color: ${Colors.Purple};
+          }
         `
       : css`
           background-color: ${outline ? 'transparent' : Colors.Pink};
           color: ${outline ? Colors.Pink : Colors.White};
           border: solid 0.1rem ${outline ? Colors.Pink : 'transparent'};
+
+          &:hover {
+            background-color: ${Colors.LightPink};
+            border-color: ${Colors.LightPink};
+            color: ${Colors.White};
+          }
         `}
 `

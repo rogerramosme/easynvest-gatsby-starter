@@ -9,14 +9,18 @@ const Palette = {
   SelectiveYellow: '#ffbb00',
   EcruWhite: '#F7F7EB',
   Alto: '#D8D8D8',
-  ElectricLime: '#d0ff0d'
+  ElectricLime: '#d0ff0d',
+  BrilliantRose: '#e958a5',
+  AquamarineBlue: '#82dde7'
 }
 
 export const Colors = {
   Purple: Palette.RipePlum,
   LightPurple: Palette.FreshEggplant,
   Blue: Palette.Scooter,
+  LightBlue: Palette.AquamarineBlue,
   Pink: Palette.Cerise,
+  LightPink: Palette.BrilliantRose,
   Brown: Palette.Thunder,
   White: Palette.White,
   Gray: Palette.DustyGray,
