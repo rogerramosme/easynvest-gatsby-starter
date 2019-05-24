@@ -45,7 +45,7 @@ Starter para criação de Landing Pages e sites baseado no [Gatsby Default Start
 
 ## 🎓 Mais sobre Gatsby
 
-Procurando por uma luz? A documentação completa do Gatsby pode ser econtrada no [website oficial]](https://www.gatsbyjs.org/). Aqui alguns pontos de partida:
+Procurando por uma luz? A documentação completa do Gatsby pode ser econtrada no [website oficial](https://www.gatsbyjs.org/). Aqui alguns pontos de partida:
 
 - **Para a maioria dos desenvolvedores, é recomendado iniciar com o [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/)(em inglês).** Ele inicia do zero sem levar em conta nenhum nível de habilidade e passa por todos o processo de criação de sites em Gatsby.
 
