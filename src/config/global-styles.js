@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 export default createGlobalStyle`
     * {
         box-sizing: border-box;
+        font-family: ${({ theme }) => theme.FontFamily}, sans-serif;
     }
 
     html,
@@ -15,7 +16,7 @@ export default createGlobalStyle`
 
     html {
         font-size: 62.5%;
-        font-family: ${({ theme }) => theme.FontFamily}, sans-serif;
+        font-weight: ${({ theme }) => theme.FontWeight.light};
         line-height: 1;
         -webkit-text-size-adjust: none;
     }
@@ -76,5 +77,9 @@ export default createGlobalStyle`
     fieldset {
         margin: 0;
         padding: 0;
+    }
+
+    strong {
+      font-weight: 500;
     }
 `

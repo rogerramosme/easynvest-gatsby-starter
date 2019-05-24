@@ -1,24 +1,37 @@
 import styled, { css } from 'styled-components'
+import { Colors } from 'config/theme'
 import Content from 'components/Content'
 import { breakpoints } from 'shared/media'
 import Button from 'components/Button'
 import CurvedShape from 'images/curved-shape.svg'
 
 export const NavbarWrapper = styled.nav`
-  padding: ${({ fixed }) => (fixed ? '2.4rem 0 0' : '2.4rem 0')};
-  background: ${({ theme }) => theme.PageBackgroundColor};
+  padding-top: 2.4rem;
+  background: ${({ theme, negative }) => (negative ? theme.PrimaryColor : theme.BackgroundColor)};
 
-  ${({ fixed }) =>
-    fixed &&
-    css`
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      width: 100vw;
-      top: 0;
-      position: fixed;
-      overflow-y: auto;
-    `};
+  ${({ menuIsOpen, theme }) =>
+    menuIsOpen
+      ? css`
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          width: 100vw;
+          top: 0;
+          position: fixed;
+          z-index: 10;
+          overflow-y: auto;
+          background-color: ${theme.PageBackgroundColor};
+        `
+      : css`
+          height: 6rem;
+          padding-top: 1.5rem;
+        `};
+
+  ${breakpoints.tablet`
+    padding-top: 0;
+    height: 6.4rem;
+    display: flex;
+  `}
 `
 
 export const NavbarContent = styled(Content)`
@@ -32,7 +45,12 @@ export const NavbarContent = styled(Content)`
 `
 
 export const NavbarLogo = styled.img`
-  max-width: 17rem;
+  max-width: 12.7rem;
+  min-width: 10rem;
+
+  ${breakpoints.tablet`
+    max-width: 17rem;
+  `}
 `
 
 export const LinkList = styled.ul`
@@ -40,6 +58,7 @@ export const LinkList = styled.ul`
   margin: 3.2rem 0 0;
   padding: 0;
   order: 2;
+  height: 100%;
 
   ${breakpoints.tablet`
     display: flex;
@@ -47,6 +66,7 @@ export const LinkList = styled.ul`
     order: 1;
     margin: 0;
     padding-left: 3.2rem;
+    justify-content: center;
   `}
 `
 
@@ -55,18 +75,35 @@ export const LinkItem = styled.li`
 `
 
 export const NavbarLink = styled.a`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: ${({ theme }) => theme.FontWeight.light};
   border-bottom: none;
-  color: ${({ active, theme }) => active && theme.PageActiveColor};
-  font-weight: ${({ active }) => active && 'bold'};
   padding: 1.8rem 0;
+  align-items: center;
+  display: flex;
 
   ${breakpoints.tablet`
-    padding: 0.8rem 3.2rem;
-    color: ${({ theme }) => theme.PageColor};
-    border-bottom: ${({ active, theme }) => active && `solid 0.3rem ${theme.PageActiveColor}`};
-    font-weight: ${({ active }) => active && 'normal'};
+    padding: 0.8rem 1rem;
+    color: ${({ theme, negative }) => (negative ? Colors.White : theme.PageColor)};
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: solid 0.3rem transparent;
+
+    &:hover{
+      text-decoration: none;
+      border-bottom-color: ${({ theme, negative }) =>
+        `${negative ? theme.PageActiveColorNegative : theme.PageActiveColor}`};
+    }
+
+    border-bottom-color: ${({ active, theme, negative }) =>
+      active && `${negative ? theme.PageActiveColorNegative : theme.PageActiveColor}`};
+
+
+  `}
+
+  ${breakpoints.desktop`
+    font-size: 1.4rem;
+    padding: 0.8rem 2rem;
   `}
 `
 
@@ -103,6 +140,8 @@ export const MenuWrapper = styled.menu`
   flex-flow: column;
   padding: 0;
   margin: 5rem 0 0;
+  height: 100%;
+  align-items: center;
 
   ${breakpoints.tablet`
     margin: 0;
@@ -113,9 +152,20 @@ export const MenuWrapper = styled.menu`
 `
 
 export const NavbarButton = styled(Button)`
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  padding: 0.8rem 1.6rem;
   flex-grow: 1;
   flex-basis: 100%;
   width: 100%;
+  white-space: nowrap;
+
+  &:hover {
+    cursor: pointer;
+  }
+  & + & {
+    margin-left: 1.4rem;
+  }
 
   ${breakpoints.phone`
     flex-basis: 50%;
@@ -136,7 +186,7 @@ export const MenuButton = styled.button.attrs({
   background: none;
   padding: 0.2rem;
   position: absolute;
-  top: 1rem;
+  top: 0.4rem;
   right: 3rem;
 
   ${breakpoints.tablet`
@@ -164,7 +214,7 @@ export const SocialWrapper = styled.div`
 `
 
 export const SocialTitle = styled.span`
-  color: #ffffff;
+  color: ${Colors.White};
   display: block;
   font-size: 1.6rem;
   text-align: center;

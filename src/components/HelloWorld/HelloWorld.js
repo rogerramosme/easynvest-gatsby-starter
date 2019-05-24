@@ -3,7 +3,7 @@ import { string } from 'prop-types'
 import { BgEasy, Title, Subtitle } from './HelloWorld.style'
 
 const HelloWorld = ({ className }) => (
-  <BgEasy className={className}>
+  <BgEasy className={className} id="hero">
     <Title>Easystarter</Title>
     <Subtitle>Tudo tem um começo.</Subtitle>
   </BgEasy>
